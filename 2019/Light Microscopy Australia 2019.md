@@ -1,134 +1,131 @@
 # Light Microscopy Australia 2019
 
-## 简介
+## Abstract
 
-[ImagePy](https://github.com/Image-Py/imagepy) 是基于Python开发的开源图像处理框架，采用wxpython界面基础，基于Numpy为核心图像数据结构，pandas为核心表格数据结构，可以方便的接入scipy.ndimage, scikit-image, simpleitk, opencv等算法库进行插件扩展。
+[ImagePy](https://github.com/Image-Py/imagepy) is an open source image processing framework written in Python. Its UI interface, image data structure and table data structure are wxpython-based, Numpy-based and pandas-based respectively. Furthermore, it supports any plug-in based on Numpy and pandas, which can talk easily between scipy.ndimage, scikit-image, simpleitk, opencv and other image processing libraries.
 
 ![newdoc01](http://idoc.imagepy.org/imgs/newdoc01.png)
 
 <div align=center>Overview, mouse measurement, geometric transformation, filtering, segmentation, counting, etc.</div><br>
 
-## 论文
+## Article 
 
 [ImagePy: an open-source, Python-based and platform-independent software package for bioimage analysis](https://academic.oup.com/bioinformatics/article/34/18/3238/4989871)
 
 
 
-## 功能特性
+## ImagePy: 
 
-1. 软件具有友好的用户操作界面
-2. 能读取，保存多种图像数据格式
-3. 支持ROI设定，绘图，测量等鼠标操作
-4. 能完成图像滤波，形态学运算等常规操作
-5. 可以很好的完成一些分割，区域计数，几何测量，密度分析相关的工作
-6. 可以对分析结果进行数据筛选，过滤，统计，绘图等相关工作
+1. has a user-friendly interface 
+2. can IO a variety of image formats 
+3. supports ROI settings, drawing, measurement and other mouse operations  
+4. can perform image filtering, morphological operations and other routine operations. 
 
-*但更为重要的是 ImagePy 不仅是一个界面应用程序，还是一个插件系统，可以方便的对其进行功能扩展*
+5. can perform image segmentation, area counting, geometric measurement and density analysis. 
+6. is able to perform data selection, filtering, statistical analysis and other operations related to the parameters extracted from the image.  
+
+__More importantly, ImagePy is not just a UI software，it's a pluggable framwork that allows extensibility.__
 
 
+## Comparison with ImageJ
 
-## 与ImageJ的异同
-
-ImagePy 从名字，到界面风格，到功能，甚至一些设计思想都很大程度的借鉴了ImageJ。包括插件加载与解析为菜单的方式，工具栏设计，参数对话框生成都与 ImageJ 类似，也同样实现了ROI，宏录制等功能。
+ImagePy is largely inspired by ImageJ, including its name, its UI style, its functionalities and the software design. More specifically, the way of loading and creating the menu; the design of toolkit bar; the design of parameter dialog. Both of the programs have the functions such as ROI selection and macro recording. 
 
 ![newdoc02](http://idoc.imagepy.org/imgs/newdoc02.png)
 
-<div align=center>'Windows > Windows Style' can switch to ImageJ style</div><br>
+<div align=center>`Windows > Windows Style` can switch to ImageJ style</div><br>
 
-**但 ImagePy 并不是一个 Python 版的 ImageJ，它们有如下区别**
+__However ImagePy is not a Python version ImageJ, Here are the differences:__
 
-1. 开发语言不同，
+1. Programming language 
 
-   语言这是最基本的差别，或许不太严谨的讲，在图像处理领域，Python 比 Java 更具优势。相对于Java，Python更加简单医学，更容易与C/C++混编，在科学计算领域有更丰富的类库。当然 ImageJ2 对 Python 有了不错的支持，但 ImagePy 可以更为直接的操作 Numpy，pandas。这意味着 scipy.ndimage, opencv-python, scikit-image, SimpleITK 等各个基于 Numpy 的图像处理库可以毫无阻力的接入 ImagePy。
+   The programming language changes all. Without being very rigorous, Python has more advantages in the field of image processing. It's much easier to learn, easier to be mixed with C/C++, it has more choices of packages for the scientific computing. Although ImageJ2 has devoted large effort in cooperating with Python, ImagePy can more directly interact with Numpy and pandas. This means all Numpy-based image processing packages such as scipy.ndimage, opencv-python, scikit-image, SimpleITK, can all be effortlessly been implemented in ImagePy. 
 
-2. 开发者友好性
+2. Developer friendliness 
 
-   ImageJ2 相对 ImageJ1 做了相当程度的重构，对UI和功能做了解耦，扩展性大大增强。但开发的复杂性也有所提高。而 ImagePy 开发，在适当的插件模板上进行参数配置，然后操作核心数据结构 (Numpy/Pandas) 即可。ImagePy基础功能中多数的插件代码都在10几行甚至10行以内。[以常用滤波器为例](https://github.com/Image-Py/imagepy/blob/master/imagepy/menus/Process/Filters/classic_plgs.py)
+   ImageJ2 is refactorized compare to the ImageJ. The UI has been decoupled from its algorithms, its extensibility has been largely increased. Unfortunately, this also comes with higher programming complexity. As for ImagePy, most of the functionalities can be implemented within tens of lines of code by modifying the existing templates. This is only possible due to the flexible parameter IO and the universal data structure (Numpy/Pandas). One can take [classical filters](https://github.com/Image-Py/imagepy/blob/master/imagepy/menus/Process/Filters/classic_plgs.py) as an example.
 
-3. 纯粹的连接器
+3. Pure connectivity
 
-   ImageJ 做的是搭建一个生态系统，imglib为核心，并连接Python，Matlab，OpenCV 等多种语言或工具。而 ImagePy 定位为纯粹的连接器，搭建生态环境是Numpy 的工作，ImagePy 只为 Numpy，Pandas 提供展示及交互环境，连接开发者与终端用户。
+   ImageJ is trying to build an ecosystem based on imglib2. At the same time, it tries to combin Python, Matlab, OpenCV and other kind of languages and tools. On the contrary, ImagePy is more focusing on the connectivity, building an ecosystem around and only around Numpy. Thus, ImagePy is only responsible for the demostration and the exchangeability of numpy-based image data. Finally, ImagePy tries to build the bridge between the developers and the end users.
 
-   
 
-   这主要体现在：
+   More specifically: 
 
-   * ImagePy 不包含任何算法，也极力反对开发者将算法写入插件，算法只针对问题，只基于Numpy，Pandas等通用数据结构，不依赖 ImagePy，而 ImagePy 单方面的尽可能为算法提供交互环境。
+   __ImagePy doesn't contain any algorithms. Further more, we are extremly against putting the algorithms into plugin. All algorithms should be problem specific, that only depends on common data structures such as Numpy or Pandas, but not ImagePy. ImagePy should and will only provide the interactive environment for algorithms.__
 
-   * ImageJ 自成体系的宏，以及 Headless 模式，提供了很大应用灵活性。但 ImagePy 作为纯粹的连接器，并不支持这些，ImagePy 的宏是标准 json，只起到功能串联的作用，并不能实现其他逻辑。而对于 Headless 则是完全不支持。原因很简单，ImagePy 只提供交互，而交互在 Headless 下交互毫无意义。但只要一切开发以算法为核心，不把算法卷入 ImagePy，个人倾向于，必要时，我们自己动手来写真正的 Python 代码，那并不比写宏或headless复杂多少，并且真正能做到每一个细节都可控。
+  __The macro and headless mode from ImageJ have provided great extensibility of ImageJ. However, as a connector, ImagePy doesn't support these functionalities. The macro of ImagePy is standarized on json and only aims to link functionalities, but not to perform other logical operations. As for headless mode, ImagePy does not support it at all. Part of the reason has been previously explained. ImagePy only ensures the interactive exploration of image data. However, in headless mode, the interaction is meaningless. From our perspective, one algorithm should be pure and no UI dependancy should be involved. Therefore, we think one should write real Python code when needed, such as for batch processing, which is not much harder than writing macros or using headless mode. As a benefit of doing this, one can have total control of every detail of its pipeline.__
 
-     
 
-## 应用示例
+## Demostrations 
 
-ImagePy 作为处理框架，提供的多数是基础功能。当然也与高校或科研机构合作过一些系统性应用项目，比如使`Unet网络对高频摄像机下的震荡的液面进行捕获`，`细胞轮廓的复杂几何参数描述` 等，但由于一些原因，这些项目的代码或数据不能够开源，这里选用一个`海冰遥感影像分析`的例子进行展示，由于部分高分影像无法开源，这里只是部分功能。
+ImagePy as an image processing framework, mostly provides basic operations. Some more advanced projects have been previously conducted with different universities and research institues, such as the capturing of vibrating liquid surface using Unet on images from high-frequency camera; the description complexe geometrical parameters of cell contours _etc._.  However, for some reason, the data or the code of these projects can not be open sourced. In this part, we choose to use some examples from the sea ice project for demostration.
 
-**高分辨率影像分割** [Github](https://github.com/Image-Py/seaice)
+**High-res image segmentation** [Github](https://github.com/Image-Py/seaice)
 
-采用滤波，梯度提取，局部极值，分水岭，区域分析，灰度分析，聚类等方法，区分冰与水，并对冰进行分块。
+Operations such as, filtering, gradiant extraction, local maxima, watersheding, area analysis, gray level analysis and clustering are performed to classify ice and water, the ice are futher fragmented.
 
 ![](http://idoc.imagepy.org/ice/30.gif)
 
-<div align=center>高分辨率影像分割</div><br>
+<div align=center>High-res image segmentation</div><br>
 
-**低分辨率冰缘线交互式提取**
+**Interactive ice edge extraction with low-res images**
 
-使用 GrabCut 方法，对图像进行交互式分割，如不满意可以撤销操作，并对掩膜进行修补，再次计算。
+The `GrabCut` is implemented to perform interactive segmentation. Undo and re-calculation of the segmentation mask is supported if the result is unsatisfied.
 
 ![](http://idoc.imagepy.org/ice/7.png)
 
-<div align=center>交互式冰与水分割</div><br>
+<div align=center>Interactive ice/water segmentation</div><br>
 
-**通过地理参考进行配准，冰区生长对比**
+**Alignment with geological information and ice growth area analysis**
 
-通过 tif 自带的地理坐标系，对图像进行配准，结合上述的提取冰区方法，并对多期进行叠加分析，得到生长情况。
+Align images with geological coordinates saved in tif files. Then combine it with ice area extraction described above to overlay multiple timepoints in order to evaluate ice area growth. 
 
 ![](http://idoc.imagepy.org/ice/21.png)
 
-<div align=center>多期配准与生长分析</div><br>
+<div align=center>Multiple timepoint overlay and ice growth analysis</div><br>
 
-**通过雷达影像计算水流速度**
+**Water flow speed estimation with RADAR images**
 
-使用ORB描述子对每一张进行特征的提取，并计算每个层间的仿射矩阵，得到连续变换关系，算出流速，转速。
+Use ORB descriptor to extract features from every image. The transformation matrix are calculated from each timepoint, then the flow speed roration speed can be estimated from the consecutive time-serie images.
 
 ![](http://idoc.imagepy.org/ice/36.gif)
 
-<div align=center>通过雷达影像计算水流</div><br>
+<div align=center>Water flow speed estimation with RADAR images</div><br>
 
-## 未来研发计划
+## Future plans
 
-**为机器学习提供更好的支持：**机器学习是当下非常热门的学科，以后也会越来越多的应用到各个领域，ImagePy 希望为机器学习打造一个更好的环境，包括图像标记，模型选择，结构参数设定，训练，代价函数的表格与图表，预测等。我想这并不会太复杂，因为目前多数的机器学习库也支持 Numpy，并且储了结构参数设定之外，也无非各种图像，鼠标交互，表格与图表，这些都是 ImagePy 已经具备的。我希望从 [DeepLabCut](https://github.com/AlexEMG/DeepLabCut), [ilastik](https://github.com/ilastik/ilastik) 着手。
+**Better support for Machine learning：** Machine learning has been heated up recently and will be largely deployed in image processing domain. ImagePy wants to build a more friendly environment for machine learning users, including image tagging, model selection, parameter setting, training, cost function report, prediction _etc._ Since most of the machine learning packages are powered by Numpy, we think the implementation is quite foreseeable. An advantage of ImagePy is that it has already several functionalities in place such as image, mouse interaction, charts and tables. The only missing part is model parameter setting. We will start with [DeepLabCut](https://github.com/AlexEMG/DeepLabCut) and [ilastik](https://github.com/ilastik/ilastik).
 
-**集成显微镜控制：**希望做一个显微镜控制应用，把数据采集，硬件调整，软件分析的过程缩短，关于显微镜，有著名的 [MicroManager](https://github.com/micro-manager/micro-manager)，但它并没有提供一个高级的Python API，不知道是否有其他的实现，或者各个显微镜厂商是否有意愿出一套类似于 Direct Show的通用标准。
+**Microscope control：** We are planning to intergrate a microscope control part into ImagePy. This will shorten the image analysis pipeline that are made of data collection, hardware tuning, software analysis. The well-known [MicroManager](https://github.com/micro-manager/micro-manager)，was on top of our list. However, it doesn't provide a high-level APIas the one written in Java. We have no idea whether there is other implementation or the microscope manufacture are trying to build a standard such as Direct Show.
 
-**Web 版的 ImagePy：**用 [bokeh](https://bokeh.pydata.org/en/latest/) 做展示，做一套基于Web的应用，但工作量巨大，并且 ROI 编辑等功能对 js 功力要求太高。并且目前看来，wxpython也并没什么不好，除了Linux下安装会遇到些许麻烦。
+**Web-based ImagePy：** [bokeh](https://bokeh.pydata.org/en/latest/) shall be used for all displays, that in turn allows web-based image processing. But the large amount of work and the lack of javascript skill in the team holds us back. Fortunately, wxpython provides already what we need, except the installation under Linux may needs some trouble shooting.
 
 
 
-## 贡献
+## Contributions
 
-**为现有功能编写操作手册**
+**Documentation writing**
 
-为ImagePy里的功能编写说明，用户可以在使用过程中随时查看，具体请参阅 [操作手册编写](https://github.com/Image-Py/demoplugin/blob/master/doc/document.md)
+Write plugin documentations for ImagePy, so that users can see it while using it, more details can be found [here](https://github.com/Image-Py/demoplugin/blob/master/doc/document.md)
 
 ![14](http://idoc.imagepy.org/demoplugin/31.png)
 
 <div align=center>view doc from plugin tree view</div><br>
 
-**开发插件**
+**Plugin development**
 
-如果你希望将你的算法做成 ImagePy 插件，这里是一个[插件演示项目](https://github.com/Image-Py/demoplugin)，里面讲解了各种插件的作用和编写方法。编写完成后，还可以通过项目的github地址来安装插件，也可以将你的插件发布到ImagePy，即可从插件管理器中安装。
+If you want your algorithm to be a part of ImagePy, this is [the demo](https://github.com/Image-Py/demoplugin) to start with. Inside this demo, diffrent kind of plugins and their functions are introduced. Once compiled, it can either be installed using Github address or be published in ImagePy, so that it can also been installed via plugin manager.
 
 ![06](http://idoc.imagepy.org/demoplugin/06.png)
 
 <div align=center>Plugins Manager</div><br>
 
-**完善框架**
+**Framework improvement**
 
-ImagePy 作为纯粹的连通器，致力于更好的为算法提供交互环境，如果你觉得有什么新特性需要添加，请在Github 上发 Pull Request。当然在添加新特性之前，最好先发起一个Issue，以确保新特性的确需要，并且以最优雅的方式实现。
+ImagePy as a connector, focus on making better interactive environment for algorithms. If any other feature that you think is useful, please address issues on Github to ensure that it's really needed and suitable in ImagePy. Once confirmed and the plugin been elegantly written, all PRs are welcomed. 
 
 
+## Community 
 
-## 社区
-
-ImagePy 是 [image.sc](https://forum.image.sc/) 的合作伙伴，任何使用，开发上遇到的问题，可以在上面讨论。
+ImagePy and [image.sc](https://forum.image.sc/) are partners. Any issues concerning ImagePy can be discussed on this forum.
