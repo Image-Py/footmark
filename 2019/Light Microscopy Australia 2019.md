@@ -28,36 +28,33 @@
 
 
 
+## Motivation & Goal
 
-## Comparison with ImageJ
+### Open Source 
 
-ImagePy is largely inspired by ImageJ, including its name, its UI style, its functionalities and the software design. More specifically, the way of loading and creating the menu; the design of toolkit bar; the design of parameter dialog. Both of the programs have the functions such as ROI selection and macro recording. 
+Python is a simple, elegant, powerful language, and has very rich third-party libraries for scientific computing. Numpy-based libraries such as scipy, scikit-image, scikit-learn and other scientific computing libraries have brought great convenience to scientific research. What more, these libraries are all open-source program, all programmers share, use and build them together. But I think **it is a large waste that only programmers share these!** So ImagePy devotes to building a light tool, which can wrap Numpy-based algorithm to build friendly tools easily. Then more users, even non-programmer can benefit from Python and Numpy-based libraries.
+
+### Developer Friendly
+
+ImagePy can interact with Numpy and pandas directly. This means all Numpy-based image processing packages such as scipy.ndimage, opencv-python, scikit-image, can all be effortlessly been integrated in ImagePy. Many functionalities can be implemented within less then ten lines of code. One can take [classical filters](https://github.com/Image-Py/imagepy/blob/master/imagepy/menus/Process/Filters/classic_plgs.py) as an example
+
+### Pure Connector
+
+ImagePy is not a algorithm libaries, doesn't contain any algorithms, and we are extremly against putting the algorithms into plugin, All algorithms should be problem specific, that only depends on common data structures such as Numpy or Pandas, but not ImagePy. ImagePy should and will only provide the interactive environment for algorithms. ImagePy supports a json style macros, but only aims to link functionalities, not to perform other logical operations. And ImagePy does not support `headless`, because we think, python and Numpy are convenient enough!
+
+### Salute ImageJ
+
+ImagePy is largely inspired by ImageJ, including its name, its UI style, its functionalities and the software design. More specifically, the way of loading and creating the menu, toolkit bar and parameter dialog. And there is a **IJ Style UI**, you can use `Windows > Windows Style` to switch.
 
 ![newdoc02](http://idoc.imagepy.org/imgs/newdoc02.png)
 
 <div align=center>`Windows > Windows Style` can switch to ImageJ style</div><br>
 
-**However ImagePy is not a Python version ImageJ, Here are the differences:**
 
-1. Programming language 
-
-   The programming language changes all. Without being very rigorous, Python has more advantages in the field of image processing. It's much easier to learn, easier to be mixed with C/C++, it has more choices of packages for the scientific computing. Although ImageJ2 has devoted large effort in cooperating with Python, ImagePy can more directly interact with Numpy and pandas. This means all Numpy-based image processing packages such as scipy.ndimage, opencv-python, scikit-image, SimpleITK, can all be effortlessly been implemented in ImagePy. 
-
-2. Developer friendliness 
-
-   ImageJ2 is refactorized compare to the ImageJ. The UI has been decoupled from its algorithms, its extensibility has been largely increased. Unfortunately, this also comes with higher programming complexity. As for ImagePy, most of the functionalities can be implemented within tens of lines of code by modifying the existing templates. This is only possible due to the flexible parameter IO and the universal data structure (Numpy/Pandas). One can take [classical filters](https://github.com/Image-Py/imagepy/blob/master/imagepy/menus/Process/Filters/classic_plgs.py) as an example.
-
-3. Pure connectivity
-
-   ImageJ is trying to build an ecosystem based on imglib2. At the same time, it tries to combin Python, Matlab, OpenCV and other kind of languages and tools. On the contrary, ImagePy is more focusing on the connectivity, building an ecosystem around and only around Numpy. Thus, ImagePy is only responsible for the demostration and the exchangeability of numpy-based image data. Finally, ImagePy tries to build the bridge between the developers and the end users.
-
-   
 
 **More specifically: **
 
 ImagePy doesn't contain any algorithms. Further more, we are extremly against putting the algorithms into plugin. All algorithms should be problem specific, that only depends on common data structures such as Numpy or Pandas, but not ImagePy. ImagePy should and will only provide the interactive environment for algorithms.
-
-
 
 The macro and headless mode from ImageJ have provided great extensibility of ImageJ. However, as a connector, ImagePy doesn't support these functionalities. The macro of ImagePy is standarized on json and only aims to link functionalities, but not to perform other logical operations. As for headless mode, ImagePy does not support it at all. Part of the reason has been previously explained. ImagePy only ensures the interactive exploration of image data. However, in headless mode, the interaction is meaningless. From our perspective, one algorithm should be pure and no UI dependancy should be involved. Therefore, we think one should write real Python code when needed, such as for batch processing, which is not much harder than writing macros or using headless mode. As a benefit of doing this, one can have total control of every detail of its pipeline.
 
