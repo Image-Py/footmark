@@ -51,14 +51,6 @@ ImagePy is largely inspired by ImageJ, including its name, its UI style, its fun
 <div align=center>`Windows > Windows Style` can switch to ImageJ style</div><br>
 
 
-
-**More specifically: **
-
-ImagePy doesn't contain any algorithms. Further more, we are extremly against putting the algorithms into plugin. All algorithms should be problem specific, that only depends on common data structures such as Numpy or Pandas, but not ImagePy. ImagePy should and will only provide the interactive environment for algorithms.
-
-The macro and headless mode from ImageJ have provided great extensibility of ImageJ. However, as a connector, ImagePy doesn't support these functionalities. The macro of ImagePy is standarized on json and only aims to link functionalities, but not to perform other logical operations. As for headless mode, ImagePy does not support it at all. Part of the reason has been previously explained. ImagePy only ensures the interactive exploration of image data. However, in headless mode, the interaction is meaningless. From our perspective, one algorithm should be pure and no UI dependancy should be involved. Therefore, we think one should write real Python code when needed, such as for batch processing, which is not much harder than writing macros or using headless mode. As a benefit of doing this, one can have total control of every detail of its pipeline.
-
-
 ## Demostrations 
 
 ImagePy as an image processing framework, mostly provides basic operations. Some more advanced projects have been previously conducted with different universities and research institues, such as the capturing of vibrating liquid surface using Unet on images from high-frequency camera; the description complexe geometrical parameters of cell contours _etc._.  However, for some reason, the data or the code of these projects can not be open sourced. In this part, we choose to use some examples from the [Sea Ice RS Image Analysis](https://github.com/Image-Py/seaice) project for demostration.
