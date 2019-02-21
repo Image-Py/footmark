@@ -53,7 +53,23 @@ ImagePy is largely inspired by ImageJ, including its name, its UI style, its fun
 
 ## Demostrations 
 
-ImagePy as an image processing framework, mostly provides basic operations. Some more advanced projects have been previously conducted with different universities and research institues, such as the capturing of vibrating liquid surface using Unet on images from high-frequency camera; the description complexe geometrical parameters of cell contours _etc._.  However, for some reason, the data or the code of these projects can not be open sourced. In this part, we choose to use some examples from the [Sea Ice RS Image Analysis](https://github.com/Image-Py/seaice) project for demostration.
+ImagePy as an image processing framework, mostly provides basic operations. Some more advanced projects have been previously conducted with different universities and research institues, such as the capturing of vibrating liquid surface using Unet on images from high-frequency camera; the description complexe geometrical parameters of cell contours _etc._.  However, for some reason, the data or the code of these projects can not be open sourced. In this part, we choose two demos. First one is a simple but classical [Cell Image Segment And Region Analysis](Cell Analysis Demo.md) for live demo, Second one is [Sea Ice RS Image Analysis](https://github.com/Image-Py/seaice). But the real HD RS data with coordinate can not be open sourced, so just have a look.
+
+**Cells segment and region analysis**
+
+This is a simple but classical demo, here we use ImagePy to threshold the cells, and segment the connected cells using watershed, then do region analysis, filter the region with eccentricity greater than 1.5 (connected pairs). And statistic the pixels of every region, filter the region has std more than 30 (cells with granules).
+
+![newdoc01](http://idoc.imagepy.org/cell/11.png)
+
+<div align=center>Cells Analysis</div><br>
+
+**Generate Report from excel template**
+
+User can design their Excel template, and add tags in a particular cell and save, change the suffix to `rpt`, you can get the report plugin of ImagePy, ImagePy will parse the template to a parameter dialog, we can set image or table, then ImagePy will fill the cell automatically.
+
+![newdoc01](http://idoc.imagepy.org/cell/16.png)
+
+<div align=center>Generate report by fill the result to a excel template</div><br>
 
 **High-res image segmentation**
 
@@ -65,7 +81,7 @@ Operations such as, filtering, gradiant extraction, local maxima, watersheding, 
 
 **Interactive ice edge extraction with low-res images**
 
-The `GrabCut` is implemented to perform interactive segmentation. Undo and re-calculation of the segmentation mask is supported if the result is unsatisfied.
+Use OpenCV's `GrabCut` to perform interactive segmentation. Undo and re-calculation of the segmentation mask is supported if the result is unsatisfied.
 
 ![](http://idoc.imagepy.org/ice/7.png)
 
