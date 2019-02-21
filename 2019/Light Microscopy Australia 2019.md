@@ -53,7 +53,7 @@ ImagePy is largely inspired by ImageJ, including its name, its UI style, its fun
 
 ## Demostrations 
 
-ImagePy as an image processing framework, mostly provides basic operations. Some more advanced projects have been previously conducted with different universities and research institues, such as the capturing of vibrating liquid surface using Unet on images from high-frequency camera; the description complexe geometrical parameters of cell contours _etc._.  However, for some reason, the data or the code of these projects can not be open sourced. In this part, we choose two demos. First one is a simple but classical [Cell Image Segment And Region Analysis](Cell Analysis Demo.md) for live demo, Second one is [Sea Ice RS Image Analysis](https://github.com/Image-Py/seaice). But the real HD RS data with coordinate can not be open sourced, so just have a look.
+ImagePy as an image processing framework, mostly provides basic operations. Some more advanced projects have been previously conducted with different universities and research institues, such as the capturing of vibrating liquid surface using Unet on images from high-frequency camera; the description complexe geometrical parameters of cell contours _etc._.  However, for some reason, the data or the code of these projects can not be open sourced. In this part, we choose two demos. First one is a simple but classical [Cell Image Segment And Region Analysis](Cell-Analysis-Demo.md) for live demo, Second one is [Sea Ice RS Image Analysis](https://github.com/Image-Py/seaice). But the real HD RS data with coordinate can not be open sourced, so just have a look.
 
 **Cells segment and region analysis**
 
