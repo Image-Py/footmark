@@ -112,6 +112,6 @@ Add some note to macros, it becomes a work flow. Just read the hint, and click f
 
 ## More Demos
 
-This demo (code, image, macros, workflow and report template) is available in ImagePy's [IBook Plugin](https://github.com/Image-Py/IBook), (`IBook > Chapter 7 > Show Cell ...`) you can use `menu: Plugins > Install > Install Plugins`, then paste `https://github.com/Image-Py/IBook`  to install. Or use the `Plugins > Manager > Plugins Manager` to install (Maybe you need update software first, git pull, or `Plugins > Update Software` for nonprogramers). There are many other demos like this.
+This demo (code, image, macros, workflow and report template) is available in ImagePy's [IBook Plugin](https://github.com/Image-Py/IBook), (`IBook > Chapter 7 > Show Cell ...`) you can use `menu: Plugins > Install > Install Plugins`, then paste `https://github.com/Image-Py/IBook`  to install. Or use the `Plugins > Manager > Plugins Manager` to install (Maybe you need update software first, git pull, or `Plugins > Update Software` for noprogramers). There are many other demos like this.
 
 ![newdoc01](http://idoc.imagepy.org/demoplugin/06.png)

@@ -40,11 +40,11 @@ ImagePy can interact with Numpy and pandas directly. This means all Numpy-based 
 
 ### Pure Connector
 
-ImagePy is not a algorithm libaries, doesn't contain any algorithms, and we are extremly against putting the algorithms into plugin, All algorithms should be problem specific, that only depends on common data structures such as Numpy or Pandas, but not ImagePy. ImagePy should and will only provide the interactive environment for algorithms. ImagePy supports a json style macros, but only aims to link functionalities, not to perform other logical operations. And ImagePy does not support `headless`, because we think, python and Numpy are convenient enough!
+ImagePy is not a algorithm libraries,  it doesn't contain any algorithms, and we are extremely against putting the algorithms into plugin, All algorithms should be problem specific, that only depends on common data structures such as Numpy or Pandas, but not ImagePy. ImagePy should and will only provide the interactive environment for algorithms. ImagePy supports a json style macros, but only aims at link functionalities, not to perform other logical operations. And ImagePy does not support `headless`, because we think, python and Numpy are convenient enough!
 
 ### Salute ImageJ
 
-ImagePy is largely inspired by ImageJ, including its name, its UI style, its functionalities and the software design. More specifically, the way of loading and creating the menu, toolkit bar and parameter dialog. And there is a **IJ Style UI**, you can use `Windows > Windows Style` to switch.
+ImagePy,including its name,UI style,functionalities and the software design, is largely inspired by ImageJ. More specifically, it is the way of loading and creating the menu, toolkit bar and parameter dialog. And there is a **IJ Style UI**, you can use `Windows > Windows Style` to switch.
 
 ![newdoc02](http://idoc.imagepy.org/imgs/newdoc02.png)
 
@@ -53,11 +53,11 @@ ImagePy is largely inspired by ImageJ, including its name, its UI style, its fun
 
 ## Demostrations 
 
-ImagePy as an image processing framework, mostly provides basic operations. Some more advanced projects have been previously conducted with different universities and research institues, such as the capturing of vibrating liquid surface using Unet on images from high-frequency camera; the description complexe geometrical parameters of cell contours _etc._.  However, for some reason, the data or the code of these projects can not be open sourced. In this part, we choose two demos. First one is a simple but classical [Cell Image Segment And Region Analysis](Cell%20Analysis%20Demo.md) for live demo, Second one is [Sea Ice RS Image Analysis](https://github.com/Image-Py/seaice). But the real HD RS data with coordinate can not be open sourced, so just have a look.
+ImagePy as an image processing framework, mostly provides basic operations. Some more advanced projects have been previously conducted with different universities and research institutes, such as the capturing of vibrating liquid surface using Unet on images from high-frequency camera; the description complex geometrical parameters of cell contours _etc._.  However, for some reason, the data or the code of these projects can not be open sourced. In this part, we choose two demos. First one is a simple but classical [Cell Image Segment And Region Analysis](Cell%20Analysis%20Demo.md) for live demo, Second one is [Sea Ice RS Image Analysis](https://github.com/Image-Py/seaice). But the real HD RS data with coordinate can not be open sourced too, so just have a look.
 
 **Cells segment and region analysis**
 
-This is a simple but classical demo, here we use ImagePy to threshold the cells, and segment the connected cells using watershed, then do region analysis, filter the region with eccentricity greater than 1.5 (connected pairs). And statistic the pixels of every region, filter the region has std more than 30 (cells with granules).
+This is a simple but classical demo, here we use ImagePy to threshold the cells, and segment the connected cells using watershed, then do region analysis, filter the region with eccentricity greater than 1.5 (connected pairs). And statistic the pixels of every region, filter region has standard deviation more than 30 (cells with granules).
 
 ![newdoc01](http://idoc.imagepy.org/cell/11.png)
 
@@ -65,7 +65,7 @@ This is a simple but classical demo, here we use ImagePy to threshold the cells,
 
 **Generate Report from excel template**
 
-User can design their Excel template, and add tags in a particular cell and save, change the suffix to `rpt`, you can get the report plugin of ImagePy, ImagePy will parse the template to a parameter dialog, we can set image or table, then ImagePy will fill the cell automatically.
+User can design their Excel template, and add tags in a particular cell and save the template. change the suffix to `rpt`, you can get the report plugin of ImagePy, ImagePy will parse the template to a parameter dialog, we can set image or table, then ImagePy will fill the cell automatically.
 
 ![newdoc01](http://idoc.imagepy.org/cell/16.png)
 
@@ -73,7 +73,7 @@ User can design their Excel template, and add tags in a particular cell and save
 
 **High-res image segmentation**
 
-Operations such as, filtering, gradiant extraction, local maxima, watersheding, area analysis, gray level analysis and clustering are performed to classify ice and water, the ice are futher fragmented.
+Operations such as, filtering, gradient extraction, local maximum, watershed, area analysis, gray level analysis and clustering are performed to classify ice and water, the ice are further fragmented.
 
 ![](http://idoc.imagepy.org/ice/30.gif)
 
@@ -89,7 +89,7 @@ Use OpenCV's `GrabCut` to perform interactive segmentation. Undo and re-calculat
 
 **Alignment with geological information and ice growth area analysis**
 
-Align images with geological coordinates saved in tif files. Then combine it with ice area extraction described above to overlay multiple timepoints in order to evaluate ice area growth. 
+Align images with geological coordinates saved in tif files. Then combine it with ice area extraction described above to overlay multiple time points in order to evaluate ice area growth. 
 
 ![](http://idoc.imagepy.org/ice/21.png)
 
@@ -97,7 +97,7 @@ Align images with geological coordinates saved in tif files. Then combine it wit
 
 **Water flow speed estimation with RADAR images**
 
-Use ORB descriptor to extract features from every image. The transformation matrix are calculated from each timepoint, then the flow speed roration speed can be estimated from the consecutive time-serie images.
+Use ORB descriptor to extract features from every image. The transformation matrix are calculated from each time point, then the Velocity rate and rotation speed of the flow can be estimated from the consecutive time-series images. We also give a implements with [pystackreg](https://pystackreg.readthedocs.io).
 
 ![](http://idoc.imagepy.org/ice/36.gif)
 
@@ -105,11 +105,11 @@ Use ORB descriptor to extract features from every image. The transformation matr
 
 ## Future plans
 
-**Better support for Machine learning：** Machine learning has been heated up recently and will be largely deployed in image processing domain. ImagePy wants to build a more friendly environment for machine learning users, including image tagging, model selection, parameter setting, training, cost function report, prediction _etc._ Since most of the machine learning packages are powered by Numpy, we think the implementation is quite foreseeable. An advantage of ImagePy is that it has already several functionalities in place such as image, mouse interaction, charts and tables. The only missing part is model parameter setting. We will start with [DeepLabCut](https://github.com/AlexEMG/DeepLabCut) and [ilastik](https://github.com/ilastik/ilastik).
+**Better support for Machine learning** Machine learning has been heated up recently and will be largely deployed in image processing domain. ImagePy wants to build a more friendly environment for machine learning users, including image tagging, model selection, parameter setting, training, cost function report, prediction _etc._ Since most of the machine learning packages are powered by Numpy, we think the implementation is quite foreseeable. An advantage of ImagePy is that it has already several functionalities in place such as image, mouse interaction, charts and tables. The only missing part is model parameter setting. We will start with [DeepLabCut](https://github.com/AlexEMG/DeepLabCut) and [ilastik](https://github.com/ilastik/ilastik).
 
-**Microscope control：** We are planning to intergrate a microscope control part into ImagePy. This will shorten the image analysis pipeline that are made of data collection, hardware tuning, software analysis. The well-known [MicroManager](https://github.com/micro-manager/micro-manager), was on top of our list. However, it is written in C, wrapped by Java, and does not provide a high-level API for Python. We have no idea whether there is other implementation, or the microscope manufacture are trying to build a standard such as Direct Show.
+**Microscope control** We are planning to integrate a microscope control part into ImagePy. This will shorten the image analysis pipeline that are made of data collection, hardware tuning, software analysis. The well-known [MicroManager](https://github.com/micro-manager/micro-manager), was on top of our list. However, it is written in C, wrapped by Java, and does not provide a high-level API for Python. We have no idea whether there is other implementation, or the microscope manufacture are trying to build a standard such as Direct Show? Which defines all the interfaces about camera, light, and the motion platform needed, then the implemented in SDK, even give a blank implement if not support.
 
-**Web-based ImagePy：** [bokeh](https://bokeh.pydata.org/en/latest/) shall be used for all displays, that in turn allows web-based image processing. But the large amount of work and the lack of javascript skill in the team holds us back. Fortunately, wxpython provides already what we need, except the installation under Linux may needs some trouble shooting.
+**Web-based ImagePy** [bokeh](https://bokeh.pydata.org/en/latest/) shall be used for all displays, that in turn allows web-based image processing. But the large amount of work and the lack of javascript skill in the team holds us back. Fortunately, wxpython provides already what we need, except the installation under Linux may needs some trouble shooting.
 
 
 
@@ -117,7 +117,7 @@ Use ORB descriptor to extract features from every image. The transformation matr
 
 **Documentation writing**
 
-Write plugin documentations for ImagePy, so that users can see it while using it, more details can be found [here](https://github.com/Image-Py/demoplugin/blob/master/doc/document.md)
+Write plugin documentations for ImagePy, so that users can see document while using the function, more details can be found [here](https://github.com/Image-Py/demoplugin/blob/master/doc/document.md)
 
 ![14](http://idoc.imagepy.org/demoplugin/31.png)
 
@@ -133,9 +133,9 @@ If you want your algorithm to be a part of ImagePy, this is [the demo](https://g
 
 **Framework improvement**
 
-ImagePy as a connector, focus on making better interactive environment for algorithms. If any other feature that you think is useful, please address issues on Github to ensure that it's really needed and suitable in ImagePy. Once confirmed and the plugin been elegantly written, all PRs are welcomed. 
+ImagePy as a connector, focus on making better interactive environment for algorithms. If any other feature that you think is useful, please address issues on Github to ensure that it's really needed and suitable in ImagePy. Once confirmed, all PRs are welcomed. 
 
 
 ## Community 
 
-ImagePy and [image.sc](https://forum.image.sc/) are partners. Any issues concerning ImagePy can be discussed on this forum.
+ImagePy is [image.sc](https://forum.image.sc/) 's partner. Any issues concerning ImagePy can be discussed on this forum.
